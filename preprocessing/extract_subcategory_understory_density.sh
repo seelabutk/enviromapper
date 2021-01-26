@@ -16,7 +16,9 @@ counter=0
     line="Light"
     echo $line
     line=$(echo $line | dos2unix)
+    echo "Doing raster"
     gdal_rasterize -ot Byte -a_nodata 0 -a OBJECTID -l OGRGeoJSON -ts 3128 1192 -burn 247 -burn 105 -burn 164 -where "$variable_name LIKE '%$line%'" $1 tmp/temp.tif
+    echo "Raster complete"
     line=$(echo $line | sed 's/ /_/g' | sed -E -e 's/[;\,-/]/_/g' | sed 's/__/_/g' | sed 's/[)(]//g' | tr '[:upper:]' '[:lower:]')
     gdal_translate tmp/temp.tif tmp/"$layer"_"$line"_1.tif
     #gdal_translate -a_srs EPSG:4326 tmp/temp.tif tmp/"$layer"_"$line"_1.tif
