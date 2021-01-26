@@ -12,7 +12,7 @@
 #./extract_subcategory.sh layers/cat_avg_yearly_rainfall.geojson cat_avg_yearly_rainfall RANGE
 # merge?
 
-./extract_subcategory.sh layers/cat_understory_density_class.geojson cat_understory_density_class density
+./extract_subcategory.sh layers/cat_understory_density_class.geojson cat_understory_density_class density_
 # merge?
 
 #./extract_subcategory.sh layers/cat_geology.geojson cat_geology AGE_PERIOD
