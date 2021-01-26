@@ -24,7 +24,7 @@ if __name__ == '__main__':
         
     range_info = {}
     for inp_filename in glob.glob('layers/con*'):
-        print 'Working on', inp_filename
+        print('Working on', inp_filename)
         out_prefix = 'sublayers/' + os.path.basename(inp_filename).replace(".asc", "")
 
         _min = 999999
@@ -44,12 +44,12 @@ if __name__ == '__main__':
                 if temp_min < _min:
                     _min = temp_min
 
-        print "Min: %s, Max: %s" % (_min, _max)
+        print("Min: %s, Max: %s" % (_min, _max))
         rng = (_max - _min) / 3.0
         ranges = [[_min, _min + rng], [_min + rng, _min + rng * 2], [_min + rng * 2, _max]]
         ranges = [[round(x[0], 1), round(x[1], 1)] for x in ranges]
         range_info[os.path.basename(inp_filename).replace(".asc", "")] = str(ranges)
-        print "Ranges:", ranges
+        print("Ranges:", ranges)
 
         for j, rng in enumerate(ranges):
             inp = open(inp_filename)

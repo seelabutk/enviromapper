@@ -41,7 +41,7 @@ if __name__ == '__main__':
             else:
                 env_stats[i[0]] = [[i[1], i[2]]]
 
-    for k, v in data.iteritems():
+    for k, v in data.items():
         if k in short_to_long_name and short_to_long_name[k] in env_stats:
             _long = short_to_long_name[k]
             data[k]['related-species'] = []
@@ -55,10 +55,3 @@ if __name__ == '__main__':
 
     with open(arguments['<data_file>'], 'w') as fp:
         json.dump(data, fp, indent=4, separators=(',', ': '))
-            
-
-    
-
-
-
-
