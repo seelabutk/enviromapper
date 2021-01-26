@@ -6,13 +6,13 @@
 ./extract_subcategory.sh layers/cat_type_disturbance.geojson cat_type_disturbance FCSUBTYPE
 ./merge_disturbance_subcategory.sh
 
-./extract_subcategory.sh layers/cat_soil_drainage_class.geojson cat_soil_drainage_class FCSUBTYPE
+./extract_subcategory.sh layers/cat_soil_drainage_class.geojson cat_soil_drainage_class DrainClass
 # merge?
 
-./extract_subcategory.sh layers/cat_avg_yearly_rainfall.geojson cat_avg_yearly_rainfall FCSUBTYPE
+./extract_subcategory.sh layers/cat_avg_yearly_rainfall.geojson cat_avg_yearly_rainfall RANGE
 # merge?
 
-./extract_subcategory.sh layers/cat_understory_density_class.geojson cat_understory_density_class FCSUBTYPE
+./extract_subcategory.sh layers/cat_understory_density_class.geojson cat_understory_density_class density
 # merge?
 
-./extract_subcategory.sh layers/cat_geology.geojson cat_geology FCSUBTYPE
+./extract_subcategory.sh layers/cat_geology.geojson cat_geology AGE_PERIOD
