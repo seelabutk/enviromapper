@@ -61,10 +61,25 @@ function drawData() {
         } catch (e) { }
       }
 
+      let specid = control._selectedSpecies[idx]._id;
+      let geoJSON = undefined;
+      console.log('Attempting to fetch species mbtiles... id is:', specid);
+      $.ajax({
+        url: `https://atlas-stg.geoplatform.gov/v4/atlas-user.${specid}${color}.json?access_token=pk.eyJ1IjoiYXRsYXMtdXNlciIsImEiOiJjazFmdGx2bjQwMDAwMG5wZmYwbmJwbmE2In0.lWXK2UexpXuyVitesLdwUg`,
+        type : "get",
+        async: false,
+        success : function(response) {
+          geoJSON = response;
+        },
+        error: function() {
+          console.log(`Could not find tiles for ${specid}${color}`);
+        }
+      });
+      console.log(geoJSON);
       control._selectedSpecies[idx].predicted = L.npmap.layer.mapbox({
         name: control._selectedSpecies[idx]._latin,
         opacity: blendingActive ? .5 : 1,
-        id: 'nps.GRSM_' + control._selectedSpecies[idx]._id + color
+        tileJson: geoJSON,
       });
 
       if (showPredicted && control._selectedSpecies[idx].visible) {

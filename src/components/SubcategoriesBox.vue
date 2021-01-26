@@ -174,6 +174,7 @@ export default {
     },
     updateLayer: function (environment, add) {
       if (add) {
+        console.log(environment);
         let temp = L.npmap.layer.mapbox({
           name: environment,
           opacity: 0.5, //blendingActive ? .5 : 1,
