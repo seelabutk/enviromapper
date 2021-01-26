@@ -1,11 +1,27 @@
 <template>
   <div>
     <div class="left">
-      <a id="title" href = "https://www.nps.gov/grsm/learn/nature/index.htm" style="text-decoration: none" target="_blank"> 
-        <h1> Great Smoky Mountains National Park</h1>
+      <a
+        id="title"
+        href="https://www.nps.gov/grsm/learn/nature/index.htm"
+        style="text-decoration: none"
+        target="_blank"
+      >
+        <h1>Great Smoky Mountains National Park</h1>
       </a>
-      <div style="padding-left: 1px; color: #bdbdbd; letter-spacing: 1px; display: inline-block; font-size: 19px; font-family: 'Source Sans Pro'">ATLAS OF THE SMOKIES: </div>
-      <div style="margin-left: 230px; margin-top: 18px;" id="atlas-app-changer">
+      <div
+        style="
+          padding-left: 1px;
+          color: #bdbdbd;
+          letter-spacing: 1px;
+          display: inline-block;
+          font-size: 19px;
+          font-family: 'Source Sans Pro';
+        "
+      >
+        ATLAS OF THE SMOKIES:
+      </div>
+      <div style="margin-left: 230px; margin-top: 18px" id="atlas-app-changer">
         <multiselect
           class="header-selector"
           v-model="selected"
@@ -18,32 +34,33 @@
       </div>
     </div>
     <div class="right">
-      <h2>National Park Service<br>U.S. Department of the Interior</h2>
+      <h2>National Park Service<br />U.S. Department of the Interior</h2>
       <span class="arrowhead"></span>
     </div>
   </div>
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect';
+import Multiselect from "vue-multiselect";
 
 export default {
-  name: 'Header',
+  name: "Header",
   components: {
-    Multiselect
+    Multiselect,
   },
-  data: function() {
+  data: function () {
     return {
-      options: ['Species Mapper'],
-      selected: ''
-    }
+      options: ["Species Mapper"],
+      selected: "",
+    };
   },
   methods: {
     appSelect: function (selection) {
-      if (selection == 'Species Mapper') window.location = 'https://science.nature.nps.gov/parks/grsm/species/';
-    }
-  }
-}
+      if (selection == "Species Mapper")
+        window.location = "https://science.nature.nps.gov/parks/grsm/species/";
+    },
+  },
+};
 </script>
 <style>
 .header-selector {
@@ -75,7 +92,8 @@ export default {
 .multiselect--active > .multiselect__content-wrapper {
   margin-top: 0px;
 }
-header .left h1, header .left div {
+header .left h1,
+header .left div {
   overflow: visible !important;
 }
 </style>
