@@ -32,7 +32,7 @@ while read -r line;
 do
     echo $line
     line=$(echo $line | dos2unix)
-    gdal_rasterize -ot Byte -a_nodata 0 -a OBJECTID -l OGRGeoJSON -ts 3128 1192 -burn 253 -burn 142 -burn 31 -where "$variable_name='$line'" $1 tmp/temp.tif
+    gdal_rasterize -ot Byte -a_nodata 0 -ts 3128 1192 -burn 253 -burn 142 -burn 31 -where "$variable_name='$line'" $1 tmp/temp.tif
     line=$(echo $line | sed 's/ /_/g' | sed -E -e 's/[;\,-/]/_/g' | sed 's/__/_/g' | sed 's/[)(]//g' | tr '[:upper:]' '[:lower:]')
     gdal_translate tmp/temp.tif tmp/"$layer"_"$line"_2.tif
     counter=$(( counter+1 ))
