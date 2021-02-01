@@ -33,4 +33,3 @@ if __name__ == '__main__':
         img = Image.fromarray(img)
         img2 = img.convert('L')
         img2.save(out)
-

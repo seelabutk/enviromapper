@@ -16,3 +16,4 @@
 ./merge_understory_density.sh
 
 #./extract_subcategory.sh layers/cat_geology.geojson cat_geology AGE_PERIOD
+# merge?
