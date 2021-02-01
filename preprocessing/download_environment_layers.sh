@@ -21,6 +21,6 @@ wget -O layers/cat_understory_density_class.geojson "https://services1.arcgis.co
 # years_since_fire is missing
 
 # Download species mappings 
-wget https://github.com/tpcolson/npmap-species/tree/gh-pages/atbirecords/irma_mapping.json
-
+# wget https://github.com/tpcolson/npmap-species/tree/gh-pages/atbirecords/irma_mapping.json
+wget https://github.com/tpcolson/npmap-species/raw/gh-pages/atbirecords/irma_mapping.json
 echo "Psst, you also need the generated env_stats.csv from the maxent results that contains the environment contributions"

@@ -9,14 +9,18 @@ if [ ! -d tmp ]; then
     mkdir tmp
 fi
 
+numeric_check='FCSUBTYPE'
+
 layer=$2
 variable_name=$3
 counter=0
-cat $1 | grep $variable_name | uniq | sed -E -e "s/^[ ]+\"$variable_name\" : [\"]*//" | sed -E -e 's/["]*, //g' | sort | uniq | 
+cat $1 | grep $variable_name | grep -oh ': ".*"' | sed -n "s/: \"\(.*\)\"/\1/p" | sort | uniq |
 while read -r line;
 do
     echo $line
-    line=${line//[!0-9]/}
+    if [[ "$line" == *"$numeric_check"* ]]; then
+        line=${line//[!0-9]/}
+    fi
     line=$(echo $line | dos2unix)
     echo $line
     gdal_rasterize -ot Byte -a_nodata 0 -ts 3129 1192 -burn 253 -burn 142 -burn 31 -where "$variable_name='$line'" $1 tmp/temp.tif
@@ -27,11 +31,13 @@ do
 done;
 
 counter=0
-cat $1 | grep $variable_name | uniq | sed -E -e "s/^[ ]+\"$variable_name\" : [\"]*//" | sed -E -e 's/["]*, //g' | sort | uniq |
+cat $1 | grep $variable_name | grep -oh ': ".*"' | sed -n "s/: \"\(.*\)\"/\1/p" | sort | uniq |
 while read -r line;
 do
     echo $line
-    line=${line//[!0-9]/}
+    if [[ "$line" == *"$numeric_check"* ]]; then
+        line=${line//[!0-9]/}
+    fi
     line=$(echo $line | dos2unix)
     echo $line
     gdal_rasterize -ot Byte -a_nodata 0 -ts 3128 1192 -burn 253 -burn 142 -burn 31 -where "$variable_name='$line'" $1 tmp/temp.tif
