@@ -15,5 +15,5 @@
 ./extract_subcategory_understory_density.sh layers/cat_understory_density_class.geojson cat_understory_density_class
 ./merge_understory_density.sh
 
-#./extract_subcategory.sh layers/cat_geology.geojson cat_geology AGE_PERIOD
+./extract_subcategory.sh layers/cat_geology.geojson geology GLG_NAME_1
 # merge?
