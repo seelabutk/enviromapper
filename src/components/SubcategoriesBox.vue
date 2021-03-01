@@ -175,13 +175,24 @@ export default {
     updateLayer: function (environment, add) {
       if (add) {
         console.log(environment);
+        let geoJSON = undefined;
+        console.log('Attempting to fetch species mbtiles... id is:', environment);
+        $.ajax({
+          url: `https://atlas-stg.geoplatform.gov/v4/atlas-user.${environment}.json?access_token=pk.eyJ1IjoiYXRsYXMtdXNlciIsImEiOiJjazFmdGx2bjQwMDAwMG5wZmYwbmJwbmE2In0.lWXK2UexpXuyVitesLdwUg`,
+          type : "get",
+          async: false,
+          success : function(response) {
+            geoJSON = response;
+          },
+          error: function() {
+            console.log(`Could not find tiles for ${environment}`);
+          }
+        });
+        if (!geoJSON) return;
         let temp = L.npmap.layer.mapbox({
           name: environment,
           opacity: 0.5, //blendingActive ? .5 : 1,
-          id:
-            (process.env.NODE_ENV == "development"
-              ? "mahmadza.GRSM_"
-              : "nps.GRSM_") + environment,
+          tileJson: geoJSON
         });
         this.maps[environment] = temp.addTo(NPMap.config.L);
       } else {
