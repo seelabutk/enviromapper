@@ -1497,7 +1497,7 @@
     "ranges": ["49\", 64.3\"", "64.3\", 79.7\"", "79.7\", 95\""],
     "type": "continuous"
   },
-  "con_solar_rad": {
+  "con_direct_solar_radiation": {
     "info":
       "The amount of light traveling in a straight line from the sun down to the surface of the earth.",
     "subcategories": [],
