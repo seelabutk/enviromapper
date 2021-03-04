@@ -188,7 +188,10 @@ export default {
             console.log(`Could not find tiles for ${environment}`);
           }
         });
-        if (!geoJSON) return;
+        if (!geoJSON) {
+          console.warn(`Could not find tiles for ${environment}`);
+          return;
+        }
         let temp = L.npmap.layer.mapbox({
           name: environment,
           opacity: 0.5, //blendingActive ? .5 : 1,

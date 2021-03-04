@@ -93,9 +93,9 @@ var subNavZ, headerZ, divHeader, divSubNav,
         }
       }
     }],
-    zoom: 10,
+    zoom: 11,
     center: { lat: 35.6, lng: -83.52 },
-    minZoom: 10,
+    minZoom: 11,
     maxZoom: 16,
     maxBounds: [
       { lat: 35, lng: -84.5 },

@@ -1328,7 +1328,7 @@
     ],
     "type": "continuous"
   },
-  "con_avg_yearly_rainfall": {
+  "cat_avg_yearly_rainfall": {
     "info": "The average amount of rain that falls in a year.",
     "subcategories": [],
     "name": "Avg Yearly Rainfall",

@@ -76,6 +76,10 @@ function drawData() {
         }
       });
       console.log(geoJSON);
+      if (!geoJSON) {
+        console.warn(`Tiles for ${specid}${color} are not available.`);
+        return;
+      }
       control._selectedSpecies[idx].predicted = L.npmap.layer.mapbox({
         name: control._selectedSpecies[idx]._latin,
         opacity: blendingActive ? .5 : 1,

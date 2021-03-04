@@ -354,7 +354,6 @@ function clearSearch() {
 function selectInitialSpecies(li, remove) {
 
   clearComparisons();
-
   //document.getElementById('search-initial-dropdown').style.backgroundColor = 'rgb(202, 24, 146)';
 
   // Populate Species Density box legend item
@@ -370,8 +369,9 @@ function selectInitialSpecies(li, remove) {
     $('#legend-species-blue').addClass('populated');
   }
   if (control._selectedSpecies[0] !== undefined && control._selectedSpecies[0].visible) {
+    console.log('removed started');
     recordAction('removed species', control._selectedSpecies[0]._latin.replace(/_/g, ' '));
-
+    console.log(control._selectedSpecies[0]);
     if (showPredicted) {
       NPMap.config.L.removeLayer(control._selectedSpecies[0].predicted);
     }
@@ -380,6 +380,7 @@ function selectInitialSpecies(li, remove) {
       NPMap.config.L.removeLayer(control._selectedSpecies[0].observed);
     }
     control._selectedSpecies[0].visible = false;
+    console.log('removed completed');
   }
   if (typeof remove !== 'undefined' && remove === true) return;
 
