@@ -22,7 +22,7 @@ for color in {1..2}; do
     cp tmp/vegetation_high_hardwood_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_montane_alluv_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_montane_alluv__"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
     cp tmp/vegetation_oak_"$color".tif sublayers/vegetation_"$j"_"$color".tif
